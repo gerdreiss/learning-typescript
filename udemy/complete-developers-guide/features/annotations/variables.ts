@@ -44,7 +44,7 @@ for (let i = 0; i < words.length; i++) {
 
 // 3. variable whose type cannot be inferred
 let nums = [-10, -1, 12];
-let hasPos = false;
+let hasPos: boolean | number = false;
 for (let i = 0; i < nums.length; i++) {
   if (nums[i] > 0) {
     hasPos = nums[i];
