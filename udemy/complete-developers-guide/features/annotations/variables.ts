@@ -23,7 +23,9 @@ let point: { x: number; y: number } = {
 };
 
 // function
-let logNumber: (n: number) => void = (n: number) => {
+let logNumber: (
+  whatTheHellDoYouNeedThisThingHereInATypeAnnotation?: number
+) => void = (n: number) => {
   console.log(n);
 };
 
