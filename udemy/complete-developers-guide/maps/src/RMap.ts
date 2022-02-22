@@ -1,8 +1,9 @@
-interface Mappable {
+export interface Mappable {
   location: {
     lat: number;
     lng: number;
   };
+  markerContent(): string;
 }
 
 export class RMap {
@@ -19,12 +20,20 @@ export class RMap {
   }
 
   addMarker(of: Mappable): void {
-    new google.maps.Marker({
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: of.location.lat,
         lng: of.location.lng,
       },
+    });
+
+    const infoWindow = new google.maps.InfoWindow({
+      content: of.markerContent(),
+    });
+
+    marker.addListener('click', () => {
+      infoWindow.open(this.googleMap, marker);
     });
   }
 }
