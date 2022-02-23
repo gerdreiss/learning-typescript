@@ -20,11 +20,18 @@
 //   }
 // }
 
+import { Characters } from './Characters';
 import { Numbers } from './Numbers';
 import { Sorter } from './Sorter';
 
 // const sorter = new Sorter([10, 2, -5, 0]);
-const numbers = new Numbers([10, 2, -5, 0]);
-const sorter = new Sorter(numbers);
-sorter.sort();
-console.log(sorter.collection);
+const numbers = new Numbers([10, 2, -5, 0, -1000]);
+const numberSorter = new Sorter(numbers);
+numberSorter.sort();
+console.log(numberSorter.sortable);
+
+const str = 'Xabaay';
+numberSorter.sort();
+const stringSorter = new Sorter(new Characters(str));
+stringSorter.sort();
+console.log(stringSorter.sortable);
