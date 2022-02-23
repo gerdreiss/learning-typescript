@@ -21,6 +21,7 @@
 // }
 
 import { Characters } from './Characters';
+import { LinkedList } from './LinkedList';
 import { Numbers } from './Numbers';
 import { Sorter } from './Sorter';
 
@@ -35,3 +36,15 @@ numberSorter.sort();
 const stringSorter = new Sorter(new Characters(str));
 stringSorter.sort();
 console.log(stringSorter.sortable);
+
+const ll = new LinkedList();
+ll.add(-3);
+ll.add(100);
+ll.add(5);
+ll.add(-4);
+ll.add(3);
+ll.add(20);
+
+const listSorter = new Sorter(ll);
+listSorter.sort();
+ll.print();

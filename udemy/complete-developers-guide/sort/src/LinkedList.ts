@@ -70,7 +70,7 @@ export class LinkedList {
     rightNode.data = aux;
   }
 
-  println(): void {
+  print(): void {
     if (!this.head) {
       return;
     }
