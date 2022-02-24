@@ -5,3 +5,5 @@ npm install nodemon concurrently
 mkdir build
 mkdir src
 touch src/index.ts
+
+npm install @types/node
