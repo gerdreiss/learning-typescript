@@ -1,15 +1,13 @@
+import { WinsAnalysis } from './composition/analyzers/WinsAnalysis';
 import { CsvFileReader } from './composition/CsvFileReader';
 import { MatchReader } from './composition/MatchReader';
-import { MatchResult } from './data/MatchData';
+import { HtmlReport } from './composition/reports/HtmlReport';
+import { Summary } from './composition/Summary';
 
-const reader = new MatchReader(new CsvFileReader('football.csv'));
+const csvReader = new CsvFileReader('football.csv');
+const reader = new MatchReader(csvReader);
+const analyzer = new WinsAnalysis('Man United');
+const output = new HtmlReport('report.html');
+const summary = new Summary(analyzer, output);
 
-let manUnitedWinsFP = reader
-  .read()
-  .filter(
-    (match) =>
-      (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) ||
-      (match[2] === 'Man United' && match[5] === MatchResult.AwayWin)
-  ).length;
-
-console.log(manUnitedWinsFP);
+summary.buildAndPrintReport(reader.read());
