@@ -1,5 +1,7 @@
 .cache/
 .history/
+.parcel-cache/
+build/
 dist/
 node_modules/
 *.js
