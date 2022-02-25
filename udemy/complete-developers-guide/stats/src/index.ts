@@ -11,3 +11,8 @@ const output = new HtmlReport('report.html');
 const summary = new Summary(analyzer, output);
 
 summary.buildAndPrintReport(reader.read());
+// using static instance builder
+Summary.createHtmlWinsSummary(
+  'Man United',
+  'static-report.html'
+).buildAndPrintReport(reader.read());
