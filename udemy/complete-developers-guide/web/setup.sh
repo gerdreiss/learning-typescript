@@ -10,3 +10,5 @@ echo 'console.log("hello there");' > src/index.ts
 
 parcel index.html
 
+npm install -g json-server
+npm install axios
