@@ -1,9 +1,7 @@
 import { User } from './models/User';
 
-const user = User.make({ id: 1 });
-
-user.on('change', () => {
-  console.log(user);
+const users = User.collection();
+users.on('change', () => {
+  console.log(users);
 });
-
-user.fetch();
+users.fetch();

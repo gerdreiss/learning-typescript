@@ -1,4 +1,5 @@
 import { Attributes } from './Attributes';
+import { Collection } from './Collection';
 import { Eventing } from './Eventing';
 import { HttpSync } from './HttpSync';
 import { Model } from './Model';
@@ -18,5 +19,9 @@ export class User extends Model<UserProps> {
       new Eventing(),
       new HttpSync<UserProps>(rootUrl)
     );
+  }
+
+  static collection(): Collection<User, UserProps> {
+    return new Collection<User, UserProps>(rootUrl, User.make);
   }
 }
