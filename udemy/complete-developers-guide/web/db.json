@@ -2,33 +2,8 @@
   "users": [
     {
       "id": 1,
-      "name": "even newer name",
-      "age": 1
-    },
-    {
       "name": "Joe",
-      "age": 30,
-      "id": 2
-    },
-    {
-      "name": "Joe",
-      "age": 42,
-      "id": 3
-    },
-    {
-      "name": "Jack",
-      "age": 42,
-      "id": 4
-    },
-    {
-      "name": "Jack",
-      "age": 42,
-      "id": 5
-    },
-    {
-      "name": "Jack",
-      "age": 42,
-      "id": 6
+      "age": 42
     }
   ]
 }
