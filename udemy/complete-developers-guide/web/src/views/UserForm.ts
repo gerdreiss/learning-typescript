@@ -5,12 +5,10 @@ export class UserForm extends View<UserProps, User> {
   template(): string {
     return `
       <div>
-        <h1>User Form</h1>
-        <div>User name: ${this.model.get('name')}</div>
-        <div>User age: ${this.model.get('age')}</div>
-        <input id="user-name-input" />
+        <input placeholder="${this.model.get('name')}" />
         <button class="set-name">update name</button>
         <button class="set-age">set random age</button>
+        <button class="save-model">Save User</button>
       </div>
     `;
   }
@@ -19,6 +17,7 @@ export class UserForm extends View<UserProps, User> {
     return {
       'click:.set-name': this.onSetNameClicked,
       'click:.set-age': this.onSetAgeClicked,
+      'click:.save-model': this.onSaveClicked,
     };
   }
 
@@ -32,5 +31,9 @@ export class UserForm extends View<UserProps, User> {
 
   onSetAgeClicked = (): void => {
     this.model.setRandomAge();
+  };
+
+  onSaveClicked = (): void => {
+    this.model.save();
   };
 }
