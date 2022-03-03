@@ -1,12 +1,18 @@
-import { User } from './models/User';
-import { UserEdit } from './views/UserEdit';
+import { Collection } from './models/Collection';
+import { User, UserProps } from './models/User';
+import { UserList } from './views/UserList';
 
-const user = User.make({ name: 'Jake', age: 24 });
-const app = document.getElementById('app');
-if (app) {
-  const userEdit = new UserEdit(app, user);
-  userEdit.render();
-  console.log(userEdit);
-} else {
-  throw new Error('App element not found');
-}
+const users = new Collection(
+  'http://localhost:3000/users',
+  (json: UserProps) => {
+    return User.make(json);
+  }
+);
+
+users.on('change', () => {
+  const app = document.getElementById('app');
+  if (app) {
+    new UserList(app, users).render();
+  }
+});
+users.fetch();
