@@ -1,12 +1,12 @@
 import bodyParser from 'body-parser';
 import cookieSession from 'cookie-session';
 import express from 'express';
-import { router } from './routes/loginRoutes';
+import { AppRouter } from './AppRouter';
 
 express()
   .use(bodyParser.urlencoded({ extended: true }))
-  .use(cookieSession({ keys: ['ecryption-key'] }))
-  .use(router)
+  .use(cookieSession({ keys: ['encryption-key'] }))
+  .use(AppRouter.getInstance())
   .listen(3000, () => {
     console.log('Listening on port 3000');
   });
