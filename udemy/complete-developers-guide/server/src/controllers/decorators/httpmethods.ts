@@ -1,7 +1,7 @@
 export enum HttpMethods {
-  get = 'get',
-  post = 'post',
-  put = 'put',
-  del = 'delete',
-  patch = 'patch',
+  Get = 'get',
+  Post = 'post',
+  Put = 'put',
+  Delete = 'delete',
+  Patch = 'patch',
 }
