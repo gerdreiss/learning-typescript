@@ -2,6 +2,9 @@ import bodyParser from 'body-parser';
 import cookieSession from 'cookie-session';
 import express from 'express';
 import { AppRouter } from './AppRouter';
+import './controllers/LoginController';
+import './controllers/ProtectedController';
+import './controllers/RootController';
 
 express()
   .use(bodyParser.urlencoded({ extended: true }))
