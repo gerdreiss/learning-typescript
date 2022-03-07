@@ -3,10 +3,10 @@ import React from 'react';
 import SeasonDisplay from './SeasonDisplay';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  state = { lat: null, errorMessage: '' };
 
-    this.state = { lat: faker.address.latitude() };
+  componentDidMount() {
+    this.setState({ lat: faker.address.latitude() });
   }
 
   render() {
