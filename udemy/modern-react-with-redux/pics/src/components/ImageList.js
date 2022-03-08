@@ -1,8 +1,8 @@
 const ImageList = (props) => {
   return (
     <div>
-      {props.images.map((image) => (
-        <img alt={image.alt_description} key={image.id} src={image.urls.regular} />
+      {props.images.map(({ alt_description, id, urls }) => (
+        <img alt={alt_description} key={id} src={urls.regular} />
       ))}
     </div>
   );
