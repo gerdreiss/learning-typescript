@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Convert from '../Convert';
+import Convert from './Convert';
 import Drowdown from './Dropdown';
 
 const options = [

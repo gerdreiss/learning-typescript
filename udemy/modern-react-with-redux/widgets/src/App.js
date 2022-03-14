@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Translate from './components/Translate';
 
 const items = [
