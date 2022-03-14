@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Drowdown from './components/Dropdown';
+import Translate from './components/Translate';
 
 const items = [
   { title: 'What is React?', content: 'React is a front end javascript framework' },
@@ -14,11 +14,9 @@ const options = [
 ];
 
 export default () => {
-  const [selected, setSelected] = useState(options[0]);
-
   return (
     <div>
-      <Drowdown options={options} selected={selected} onSelectedChange={setSelected} />
+      <Translate />
     </div>
   );
 };
