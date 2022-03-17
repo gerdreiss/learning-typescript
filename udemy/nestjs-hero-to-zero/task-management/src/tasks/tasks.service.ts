@@ -43,10 +43,21 @@ export class TasksService {
     }
   }
 
-  updateTaskStatus(id: string, status: TaskStatus): void {
+  updateTaskStatus(id: string, status: TaskStatus): Task {
     const task = this.getTask(id);
     if (task) {
       task.status = status;
     }
+    return task;
+  }
+
+  findTasks(status?: TaskStatus, search?: string): Task[] {
+    return this.tasks.filter(
+      (task) =>
+        (!status || task.status === status) &&
+        (!search ||
+          task.title.includes(search) ||
+          task.description.includes(search)),
+    );
   }
 }
