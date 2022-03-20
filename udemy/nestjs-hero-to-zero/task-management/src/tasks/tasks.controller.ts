@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Query,
+} from '@nestjs/common';
+import { DeleteResult } from 'typeorm';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 import { Task } from './task.entity';
@@ -27,10 +36,10 @@ export class TasksController {
       createTaskDto.description,
     );
   }
-  // @Delete('/:id')
-  // deleteTask(@Param('id') id: string): void {
-  //   return this.tasksService.deleteTask(id);
-  // }
+  @Delete('/:id')
+  asyncdeleteTask(@Param('id') id: string): Promise<DeleteResult> {
+    return this.tasksService.deleteTask(id);
+  }
   // @Put('/:id/start')
   // startTask(@Param('id') id: string): void {
   //   return this.tasksService.startTask(id);
